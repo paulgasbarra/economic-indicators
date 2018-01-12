@@ -23,7 +23,7 @@ export default class Hello extends Component {
           <li>Money Supply</li>
           <li>Consumer Expectations</li>
         </ul>
-        <FetchWidget subreddit='politics' url="http://www.reddit.com/r/" format=".json"/>
+        <FetchWidget subreddit='' url="https://api.nytimes.com/svc/news/v3/content/nyt/all.json" format=""/>
         <FetchWidget subreddit='gaming' url="http://www.reddit.com/r/" format=".json"/>
       </div>
     );

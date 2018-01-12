@@ -14,12 +14,21 @@ class FetchWidget extends React.Component {
   componentDidMount() {
     var config = {
       headers: {
-        'Access-Control-Allow-Origin' : '*'
+        'Access-Control-Allow-Origin' : '',
+        'api-key': 'ea2df5ca8ccc4705801f9c81c24aa754',
       }
     }
+
+    const params = {
+      'api-key': 'ea2df5ca8ccc4705801f9c81c24aa754',
+      'limit': 5
+    }
+    const apiKey = "?api-key=ea2df5ca8ccc4705801f9c81c24aa754"
+
     const url = `${this.props.url}${this.props.subreddit}${this.props.format}`
-    axios.get(url)
+    axios.get(url+apiKey, params)
       .then(res => {
+        console.log(res.data.results[0].title)
         const posts = res.data.data.children.map(obj => obj.data);
         this.setState({ posts });
       });
